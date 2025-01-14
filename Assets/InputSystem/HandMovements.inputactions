@@ -1,0 +1,54 @@
+{
+    "name": "HandMovements",
+    "maps": [
+        {
+            "name": "HandMovements",
+            "id": "d5a17233-4877-4f0b-b522-d0087e6b4a74",
+            "actions": [
+                {
+                    "name": "LeftHandMovement",
+                    "type": "Value",
+                    "id": "d7a13a53-0997-4fa3-9b5c-3c19a37540c4",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightHandMovement",
+                    "type": "Value",
+                    "id": "1d698dc9-90ed-45fe-970e-3e3ec56a8720",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f6ff3499-6022-4cab-bd9e-545a2531fea3",
+                    "path": "<XRController>{LeftHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftHandMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57916174-4e1a-464d-a9b4-d2a9581a2531",
+                    "path": "<XRController>{RightHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightHandMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
