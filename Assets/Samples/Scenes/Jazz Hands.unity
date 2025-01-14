@@ -9056,7 +9056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908ae67c7f643cf41817bd65324b1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 1699825831}
   offset: {x: 0, y: 0, z: 7}
 --- !u!1001 &727877522
 PrefabInstance:
@@ -9583,12 +9583,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803197925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb19eb52d34ee5246a23c560fb59fd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeedZ: -0.01
+  rend: {fileID: 0}
+  currentOffset: {x: 0, y: 0}
 --- !u!54 &803197931
 Rigidbody:
   m_ObjectHideFlags: 0
