@@ -27,7 +27,6 @@ public class PlayerCollisionTrigger : MonoBehaviour
             }
         }
     }
-
     private IEnumerator GameOverSequence(GameObject collidedObstacle)
     {
         if (gameOverSound != null)

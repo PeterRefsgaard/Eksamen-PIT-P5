@@ -14,38 +14,28 @@ public class GameManagement : MonoBehaviour
 
     private void Awake()
     {
-        // Hvis en anden instans eksisterer, destruer den for at sikre ren opstart
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
-        DontDestroyOnLoad(gameObject); // G?r dette objekt persistent
+        DontDestroyOnLoad(gameObject); 
     }
-
     public void StartGame()
     {
-        Time.timeScale = 1; // S?rg for, at spillet k?rer normalt
+        Time.timeScale = 1; 
         isGameStarted = true;
-
         if (initialUIElements != null)
             initialUIElements.SetActive(false);
-
         if (secondaryUIElements != null)
             secondaryUIElements.SetActive(false);
-
         if (calibrationModeUI != null)
             calibrationModeUI.SetActive(false);
-
         if (lastUIElements != null)
             lastUIElements.SetActive(false);
-
         if (calibrationPoints != null)
             calibrationPoints.SetActive(false);
-
-        Debug.Log("Game started successfully. Time.timeScale: " + Time.timeScale);
     }
 
     public bool IsGameStarted()
@@ -56,34 +46,22 @@ public class GameManagement : MonoBehaviour
     public void ResetGame()
     {
         isGameStarted = false;
-
-        // Genskab UI-tilstand
         if (initialUIElements != null)
             initialUIElements.SetActive(true);
-
         if (secondaryUIElements != null)
             secondaryUIElements.SetActive(false);
-
         if (calibrationModeUI != null)
             calibrationModeUI.SetActive(false);
-
         if (lastUIElements != null)
             lastUIElements.SetActive(false);
-
         if (calibrationPoints != null)
             calibrationPoints.SetActive(false);
-
-        Debug.Log("Game state has been reset.");
     }
-
-    // Nulstil singleton ved scenegenindl?sning
     public void ResetSingleton()
     {
         Instance = null;
-        Destroy(gameObject); // S?rg for, at objektet slettes
-        Debug.Log("GameManagement singleton nulstillet.");
+        Destroy(gameObject);
     }
-
     public void EndGame()
     {
         isGameStarted = false;
