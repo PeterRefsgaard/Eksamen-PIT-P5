@@ -23,30 +23,20 @@ public class CalibrationNoticer : MonoBehaviour
 
     private void Start()
     {
-        ResetCalibrationState(); // S?rg for, at alt starter korrekt
+        ResetCalibrationState(); 
     }
     private void Update()
     {
-        Debug.Log($"Update called. Time.deltaTime: {Time.deltaTime}, CalibrationComplete: {calibrationComplete}");
-
         if (calibrationComplete)
         {
-            Debug.Log("Calibration is already complete. Skipping Update.");
             return;
         }
-
         leftInCircle = IsInsideCircle(leftController.transform.position, leftCalibrationPoint.transform.position, leftCalibrationPoint.transform.localScale.x / 2);
         rightInCircle = IsInsideCircle(rightController.transform.position, rightCalibrationPoint.transform.position, rightCalibrationPoint.transform.localScale.x / 2);
-
-        Debug.Log($"LeftInCircle: {leftInCircle}, RightInCircle: {rightInCircle}");
-
         if (leftInCircle && rightInCircle)
         {
             countdownTimer += Time.deltaTime;
-            Debug.Log($"Countdown Timer: {countdownTimer}");
-
             UpdateCountdownText(Mathf.Ceil(countdownDuration - countdownTimer).ToString());
-
             if (countdownTimer >= countdownDuration)
             {
                 CompleteCalibration();
@@ -64,7 +54,6 @@ public class CalibrationNoticer : MonoBehaviour
         float distance = Vector3.Distance(new Vector3(point.x, 0, point.z), new Vector3(circleCenter.x, 0, circleCenter.z));
         return distance <= radius;
     }
-
     private void UpdateCountdownText(string text)
     {
         if (countdownText != null)
@@ -79,46 +68,32 @@ public class CalibrationNoticer : MonoBehaviour
 
         if (leftCalibrationPoint != null)
             leftCalibrationPoint.SetActive(false);
-
         if (rightCalibrationPoint != null)
             rightCalibrationPoint.SetActive(false);
-
         if (infoText != null)
             infoText.SetActive(false);
-
         UpdateCountdownText("");
-
         if (beginFlappingText != null)
             beginFlappingText.SetActive(true);
-
         if (GameManagement.Instance != null)
         {
             GameManagement.Instance.StartGame();
         }
-
-        StartCoroutine(DeactivateUICanvasAfterDelay(2f));
-        Debug.Log("Calibration completed. Countdown finished.");
+        StartCoroutine(DeactivateUICanvasAfterDelay(2f));    
     }
-
-
     private IEnumerator DeactivateUICanvasAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
         if (uiCanvas != null)
         {
             uiCanvas.SetActive(false);
         }
     }
-
     public void ResetCalibrationState()
     {
-        Time.timeScale = 1; // S?rg for, at tiden ikke er pauset
-        Debug.Log("Time.timeScale set to 1 in ResetCalibrationState.");
-
+        Time.timeScale = 1;
         calibrationComplete = false;
         countdownTimer = 0f;
-
         if (leftCalibrationPoint != null)
         {
             leftCalibrationPoint.SetActive(false);
@@ -127,75 +102,57 @@ public class CalibrationNoticer : MonoBehaviour
         {
             rightCalibrationPoint.SetActive(false);
         }
-
         if (infoText != null)
         {
             infoText.SetActive(true);
         }
-
         if (beginFlappingText != null)
         {
             beginFlappingText.SetActive(false);
         }
-
         if (countdownText != null)
         {
             countdownText.text = "";
         }
-
         if (uiCanvas != null)
         {
             uiCanvas.SetActive(true);
         }
-
-        Debug.Log("Calibration state has been reset.");
     }
-
-
     public void FullReset()
     {
         ResetCalibrationState();
-        Debug.Log("Full calibration reset called.");
     }
-
     public void ForceRestartCalibration()
     {
         calibrationComplete = false;
         countdownTimer = 0f;
-
         if (leftCalibrationPoint != null)
         {
-            leftCalibrationPoint.SetActive(true); // Aktiver kalibreringspunkterne
+            leftCalibrationPoint.SetActive(true);
         }
         if (rightCalibrationPoint != null)
         {
             rightCalibrationPoint.SetActive(true);
         }
-
         if (infoText != null)
         {
-            infoText.SetActive(true); // Vis info-teksten
+            infoText.SetActive(true); 
         }
-
         if (beginFlappingText != null)
         {
-            beginFlappingText.SetActive(false); // Skjul "Begin Flapping"-teksten
+            beginFlappingText.SetActive(false); 
         }
-
         if (countdownText != null)
         {
-            countdownText.text = ""; // Ryd nedt?llingsteksten
+            countdownText.text = "";
         }
-
-        Debug.Log("Calibration forcibly restarted.");
     }
-
     public void ClearBeginFlappingText()
     {
         if (beginFlappingText != null)
         {
             beginFlappingText.SetActive(false);
-            Debug.Log("Begin Flapping text cleared.");
         }
     }
 }

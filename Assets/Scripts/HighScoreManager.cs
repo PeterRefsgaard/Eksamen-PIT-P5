@@ -4,7 +4,6 @@ using UnityEngine;
 public class HighscoreManager : MonoBehaviour
 {
     public int highscore = 0;
-
     private const string HighscoreKey = "Highscore"; 
     public void LoadHighscore()
     {
