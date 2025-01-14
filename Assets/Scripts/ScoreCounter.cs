@@ -7,27 +7,22 @@ public class PlayerScore : MonoBehaviour
     public TextMeshProUGUI scoreText;
     private HighscoreManager highscoreManager;
     private AudioSource audioSource;
-
     private void Start()
     {
         highscoreManager = FindObjectOfType<HighscoreManager>();
         audioSource = GetComponent<AudioSource>();
         UpdateScoreText();
-
-        // Load the high score at the start
         if (highscoreManager != null)
         {
             highscoreManager.LoadHighscore();
         }
     }
-
     public void AddScore(int points)
     {
         score += points;
         PlayScoreSound();
         UpdateScoreText();
     }
-
     private void UpdateScoreText()
     {
         if (scoreText != null)
@@ -35,7 +30,6 @@ public class PlayerScore : MonoBehaviour
             scoreText.text = "Score: " + score.ToString();
         }
     }
-
     private void PlayScoreSound()
     {
         if (audioSource != null)
@@ -43,13 +37,12 @@ public class PlayerScore : MonoBehaviour
             audioSource.Play();
         }
     }
-
     public void OnGameOver()
     {
         if (highscoreManager != null)
         {
-            highscoreManager.SaveHighscore(score); // Save the highscore
-            highscoreManager.DisplayHighscore(scoreText); // Optionally display the highscore
+            highscoreManager.SaveHighscore(score); 
+            highscoreManager.DisplayHighscore(scoreText);
         }
     }
 }

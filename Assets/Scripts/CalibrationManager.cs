@@ -2,34 +2,28 @@ using UnityEngine;
 
 public class CalibrationManager : MonoBehaviour
 {
-    public GameObject leftCalibrationPoint;  // Reference til venstre cirkel
-    public GameObject rightCalibrationPoint; // Reference til h?jre cirkel
-
-    // Metode til at aktivere kalibreringspunkterne
+    public GameObject leftCalibrationPoint; 
+    public GameObject rightCalibrationPoint; 
     public void ActivateCalibrationPoints()
     {
         if (leftCalibrationPoint != null)
         {
-            leftCalibrationPoint.SetActive(true); // Aktiver venstre cirkel
+            leftCalibrationPoint.SetActive(true); 
         }
         if (rightCalibrationPoint != null)
         {
-            rightCalibrationPoint.SetActive(true); // Aktiver h?jre cirkel
+            rightCalibrationPoint.SetActive(true); 
         }
-
-        Debug.Log("Calibration points activated!");
     }
     public void DeactivateCalibrationPoints()
     {
         if (leftCalibrationPoint != null)
         {
-            leftCalibrationPoint.SetActive(false); // Deaktiver venstre cirkel
+            leftCalibrationPoint.SetActive(false);
         }
         if (rightCalibrationPoint != null)
         {
-            rightCalibrationPoint.SetActive(false); // Deaktiver h?jre cirkel
+            rightCalibrationPoint.SetActive(false);
         }
-
-        Debug.Log("Calibration points deactivated!");
     }
 }
