@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Jazz Hands.unity
+    path: Assets/Samples/Scenes/Jazz Hands.unity
     guid: a64d2eae4538ffa4a888acb9dd7b004e
   - enabled: 1
-    path: Assets/Scenes/Test.unity
+    path: Assets/Samples/Scenes/Test.unity
     guid: a4b66c5dcab8d2d4f9bcefa023cd3c4c
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0c27f798a6e502f4397005f51758ab0b,
