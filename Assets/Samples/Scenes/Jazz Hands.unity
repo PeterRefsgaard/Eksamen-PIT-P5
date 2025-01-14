@@ -13649,7 +13649,7 @@ MonoBehaviour:
   delayBeforeGameOverUI: 2
   uiManager: {fileID: 14086143}
   calibrationNoticer: {fileID: 285203920}
-  obstacleSpawner: {fileID: 0}
+  obstacleSpawner: {fileID: 892777110}
 --- !u!114 &1132998275
 MonoBehaviour:
   m_ObjectHideFlags: 0

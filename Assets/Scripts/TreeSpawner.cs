@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LateralPrefabSpawner : MonoBehaviour
+public class TreeSpawner : MonoBehaviour
 {
     [Header("Prefab Options")]
     public GameObject[] prefabOptions;  // Array of different prefabs to spawn
